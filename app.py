@@ -14,14 +14,14 @@ import streamlit as st
 
 # Define start and end dates
 start = '2010-01-01'
-end = '2024-09-10'
+end = '2028-09-10'
 
 
 st.title('Stock Trend Prediction')
 
 
-user_input = st.text_input('Enter stock ticker', 'ITC')
-df = yf.download(user_input, start=start, end=end)
+user_input = st.text_input('Enter stock ticker', 'AAPL')
+df = yf.download(user_input, start=start, end=end , progress=False)
 
 # Display data
 st.subheader(f'Data from {start} to {end}')
@@ -110,6 +110,4 @@ plt.title(f'{user_input} Original vs Predicted Prices')
 plt.xlabel('Date')
 plt.ylabel('Price')
 plt.legend()
-
-# Show plot in Streamlit
 st.pyplot(plt)
